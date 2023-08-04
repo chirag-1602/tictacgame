@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mystyle/tictac.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Document</title>
+    <script
+    src="https://code.jquery.com/jquery-3.7.0.min.js"
+     crossorigin="anonymous"></script>
+     <script>
+        $(document).ready(function(){
+            $("#box1").val("1");
+            $("#box2").val("2");
+            $("#box3").val("3");
+            $("#box4").val("4");
+            $("#box5").val("5");
+            $("#box6").val("6");
+            $("#box7").val("7");
+            $("#box8").val("8");
+            $("#box9").val("9");
+         $("#onShow").click(function(){
+            // alert();
+          $("#outer").slideDown(1000);
+         });
+         var flag=false;
+         $(".box").click(function(){
+            if(flag==true)
+               {     
+                $(this).removeClass("sokhay").addClass("okhay");
+                flag=false;
+                $(this).val("0");
+                $(this).unbind("click");
+                $("#player").html("Player1 turn");
+               }
+               else
+               {
+                $(this).addClass("sokhay").removeClass("okhay");
+                $(this).val("X");
+                flag=true;
+                $(this).unbind("click");
+                $("#player").html("Player2 turn");
+               }
+             $(".box").click(function(){
+                if($("#box1").val()== $("#box2").val() && $("#box2").val()==$("#box3").val() && $("#box3").val()==$("#box1").val()){
+                    
+                if($("#box1").val()=='X'){
+                    $("#player").html("Congratulations Player 1 wins");
+                    $(".box").unbind("click");
+                }
+                else{
+                    $("#player").html("Congratulations Player 2 wins");
+                    $(".box").unbind("click");
+                 }
+               }
+               else if($("#box4").val()== $("#box5").val() && $("#box5").val()==$("#box6").val() && $("#box6").val()==$("#box4").val()){
+                if($("#box4").val()=='X'){
+                    $("#player").html("Congratulations Player 1 wins");
+                    $(".box").unbind("click");
+                }
+                else{
+                    $("#player").html("Congratulations Player 2 wins");
+                    $(".box").unbind("click");
+                 }
+               }
+               else if($("#box7").val()== $("#box8").val() && $("#box8").val()==$("#box9").val() && $("#box9").val()==$("#box7").val()){
+                if($("#box7").val()=='X'){
+                    $("#player").html("Congratulations Player 1 wins");
+                    $(".box").unbind("click");
+                   
+                }
+                else{
+                    $("#player").html("Congratulations Player 2 wins");
+                    $(".box").unbind("click");
+                 }
+               }
+               else if($("#box1").val()== $("#box4").val() && $("#box4").val()==$("#box7").val() && $("#box7").val()==$("#box1").val()){
+                if($("#box1").val()=='X'){
+                    $("#player").html("Congratulations Player 1 wins");
+                    $(".box").unbind("click");
+                }
+                else{
+                    $("#player").html("Congratulations Player 2 wins");
+                    $(".box").unbind("click");
+                 }
+               }
+               else if($("#box2").val()== $("#box5").val() && $("#box5").val()==$("#box8").val() && $("#box8").val()==$("#box5").val()){
+                if($("#box2").val()=='X'){
+                    $("#player").html("Congratulations Player 1 wins");
+                    $(".box").unbind("click");
+                }
+                else{
+                    $("#player").html("Congratulations Player 2 wins");
+                    $(".box").unbind("click");
+                 }
+               }
+               else if($("#box3").val()== $("#box6").val() && $("#box6").val()==$("#box9").val() && $("#box9").val()==$("#box3").val()){
+                if($("#box3").val()=='X'){
+                    $("#player").html("Congratulations Player 1 wins");
+                    $(".box").unbind("click");
+                }
+                else{
+                    $("#player").html("Congratulations Player 2 wins");
+                    $(".box").unbind("click");
+                 }
+               }
+               else if($("#box1").val()== $("#box5").val() && $("#box5").val()==$("#box9").val() && $("#box9").val()==$("#box1").val()){
+                if($("#box1").val()=='X'){
+                    $("#player").html("Congratulations Player 1 wins");
+                    $(".box").unbind("click");
+
+                }
+                else{
+                    $("#player").html("Congratulations Player 2 wins");
+                    $(".box").unbind("click");
+                 }
+               }
+               else if($("#box3").val()== $("#box5").val() && $("#box5").val()==$("#box7").val() && $("#box7").val()==$("#box3").val()){
+                if($("#box3").val()=='X'){
+                    $("#player").html("Congratulations Player 1 wins");
+                }
+                else{
+                    $("#player").html("Congratulations Player 2 wins");
+                 }
+               }
+               else if (($("#box1").val() == 'X' || $("#box1").val() == '0') &&
+                    ($("#box2").val() == 'X' || $("#box2").val() == '0') &&
+                    ($("#box3").val() == 'X'|| $("#box3").val() == '0') &&
+                    ($("#box4").val() == 'X' || $("#box4").val() == '0') &&
+                    ($("#box5").val() == 'X' || $("#box5").val() == '0') &&
+                    ($("#box6").val() == 'X' || $("#box6").val() == '0') &&
+                    ($("#box7").val() == 'X' || $("#box7").val() == '0') &&
+                    ($("#box8").val() == 'X' || $("#box8").val() == '0') &&
+                    ($("#box9").val() == 'X' || $("#box9").val() == '0')){
+                        $("#player").html("TIE");
+                    }
+                        
+
+             })
+;            
+         });
+        });
+     </script>
+</head>
+<body>
+    <center>
+        <input type="button" value="Click here to Start" id="onShow">
+    </center>
+    <center>
+        <br><br><br><br>
+        <div id="outer">
+        <div id="tic">Tic Tac Toe
+        </div>
+        <div id="player">Player1 turn</div>
+    <div id="main">
+        <div id="firstdiv" >
+            <div id="box1" class="box"> </div>
+            <div id="box2" class="box"></div>
+            <div id="box3"class="box"></div>
+        </div>
+        <div id="seconddiv" >
+            <div id="box4" class="box"></div>
+            <div id="box5" class="box"></div>
+            <div id="box6" class="box"></div>
+        </div>
+        <div id="thirddiv">
+            <div id="box7"class="box"></div>
+            <div id="box8"class="box"></div>
+            <div id="box9"class="box"></div>
+        </div>
+    </div>
+    </div>
+ 
+</center>
+</body>
+</html>
